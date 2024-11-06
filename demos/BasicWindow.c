@@ -1,4 +1,5 @@
 #include "rikka_core.h"
+#include "rikka_datatypes.h"
 
 int main(void) {
     if(!rkk_InitGLFW()) return -1;
@@ -10,15 +11,12 @@ int main(void) {
         return -2;
     }
 
+    rkk_UseWindow(Window);
+
     while(!rkk_WindowShouldClose(Window)) {
-        glfwPollEvents();
-
-        // Render here
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);  // Set the background color
-        glClear(GL_COLOR_BUFFER_BIT);            // Clear the screen
-
-        // Swap buffers
-        glfwSwapBuffers(Window);
+        rkk_PoolEvents();
+        rkk_Clear(0.47, 0.0,0.46, 1.0);
+        rkk_SwapBuffers(Window);
     }
 
     return 0;

@@ -16,6 +16,9 @@ rkk_bool rkk_WindowShouldClose(rkk_Window *Window);
 
 void rkk_SetVsync(rkk_bool State);
 
+void rkk_PoolEvents();
+void rkk_SwapBuffers(rkk_Window *Window);
+
 int rkk_InitGLFW() {
     int err = glfwInit();
     if (!err) printf("RIKKA_CORE: Failed To Initialize GLFW\nERROR: %i\n", err);
@@ -41,4 +44,8 @@ void rkk_DestroyWindow(GLFWwindow *Window) {glfwDestroyWindow(Window);}
 
 void rkk_UseWindow(GLFWwindow *Window) {glfwMakeContextCurrent(Window);}
 void rkk_SetVsync(rkk_bool State) {glfwSwapInterval((int) State);}
+
 rkk_bool rkk_WindowShouldClose(rkk_Window *Window) {return (rkk_bool) glfwWindowShouldClose(Window);}
+
+void rkk_PoolEvents() {glfwPollEvents();}
+void rkk_SwapBuffers(rkk_Window *Window) {glfwSwapBuffers(Window);}

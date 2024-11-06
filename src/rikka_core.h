@@ -19,11 +19,17 @@ rkk_bool rkk_WindowShouldClose(rkk_Window *Window);
 
 void rkk_SetVsync(rkk_bool State);
 
-void rkk_error_callback(int error, const char* desc);
+//void rkk_error_callback(int error, const char* desc);
+
+void rkk_PoolEvents();
+void rkk_SwapBuffers(rkk_Window *Window);
 
 /* shaders.c */
 GLuint rkk_CompileShader(const char* source, GLenum type);
 GLuint rkk_CreateShaderProgram(const char* VertextShader, const char* FragmentShader);
 void rkk_DeleteShaderProgram(GLuint ShaderProgram);
+
+/* renderer.c */
+void rkk_Clear(float Red, float Green, float Blue, float Alpha);
 
 #endif

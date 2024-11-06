@@ -7,6 +7,7 @@ project(Rikka_Engine VERSION 1.0)
 set(Rikka_Core_Src
     ./src/rikka_core/core.c
     ./src/rikka_core/shaders.c
+    ./src/rikka_core/renderer.c
 )
 
 #Copy Staff to build
