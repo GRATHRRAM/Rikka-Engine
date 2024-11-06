@@ -3,7 +3,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-#include "../rikka_datetypes.h"
+#include "../rikka_datatypes.h"
 
 int rkk_InitGLFW();
 int rkk_InitGLEW();
@@ -12,6 +12,7 @@ void rkk_TerminateGLFW();
 GLFWwindow *rkk_GetWindow(rkk_u32 ResX, rkk_u32 ResY, const char* Title);
 void rkk_DestroyWindow(GLFWwindow *Window);
 void rkk_UseWindow(GLFWwindow *Window);
+rkk_bool rkk_WindowShouldClose(rkk_Window *Window);
 
 void rkk_SetVsync(rkk_bool State);
 
@@ -40,3 +41,4 @@ void rkk_DestroyWindow(GLFWwindow *Window) {glfwDestroyWindow(Window);}
 
 void rkk_UseWindow(GLFWwindow *Window) {glfwMakeContextCurrent(Window);}
 void rkk_SetVsync(rkk_bool State) {glfwSwapInterval((int) State);}
+rkk_bool rkk_WindowShouldClose(rkk_Window *Window) {return (rkk_bool) glfwWindowShouldClose(Window);}
