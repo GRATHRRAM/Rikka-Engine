@@ -20,8 +20,8 @@ rkk_bool rkk_WindowShouldClose(rkk_Window *Window);
 void rkk_SetVsync(rkk_bool State);
 
 rkk_vec2 rkk_MakeVec2(float x, float y);
-rkk_Color rkk_MakeColor(rkk_u8 Red, rkk_u8 Green, rkk_u8 Blue, rkk_u8 Alpha);
-rkk_Color rkk_MakeColorF(float Red, float Green, float Blue, float Alpha);
+rkk_Color rkk_MakeColor(float Red, float Green, float Blue, float Alpha);
+rkk_Color rkk_MakeColorU8(float Red, float Green, float Blue, float Alpha);
 
 //void rkk_error_callback(int error, const char* desc);
 

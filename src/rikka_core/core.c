@@ -21,8 +21,8 @@ void rkk_PoolEvents();
 void rkk_SwapBuffers(rkk_Window *Window);
 
 rkk_vec2 rkk_MakeVec2(float x, float y);
-rkk_Color rkk_MakeColor(rkk_u8 Red, rkk_u8 Green, rkk_u8 Blue, rkk_u8 Alpha);
-rkk_Color rkk_MakeColorF(float Red, float Green, float Blue, float Alpha);
+rkk_Color rkk_MakeColor(float Red, float Green, float Blue, float Alpha);
+rkk_Color rkk_MakeColorU8(float Red, float Green, float Blue, float Alpha);
 
 int rkk_InitGLFW() {
     int err = glfwInit();
@@ -56,13 +56,13 @@ void rkk_PoolEvents() {glfwPollEvents();}
 void rkk_SwapBuffers(rkk_Window *Window) {glfwSwapBuffers(Window);}
 
 rkk_vec2 rkk_MakeVec2(float x, float y) {return (rkk_vec2){x,y};}
-rkk_Color rkk_MakeColor(rkk_u8 Red, rkk_u8 Green, rkk_u8 Blue, rkk_u8 Alpha) {return (rkk_Color){Red,Green,Blue,Alpha};}
-rkk_Color rkk_MakeColorF(float Red, float Green, float Blue, float Alpha) {
+rkk_Color rkk_MakeColor(float Red, float Green, float Blue, float Alpha) {return (rkk_Color){Red,Green,Blue,Alpha};}
+rkk_Color rkk_MakeColorU8(float Red, float Green, float Blue, float Alpha) {
     rkk_Color Color = {
-        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Red   * 255.0f))),
-        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Green * 255.0f))),
-        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Blue  * 255.0f))),
-        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Alpha * 255.0f)))
+        Red   / 255.0f,
+        Green / 255.0f,
+        Blue  / 255.0f,
+        Alpha / 255.0f
     };
     return Color;
 }

@@ -59,5 +59,5 @@ endif()
 add_executable(BasicWindow ${PROJECT_SOURCE_DIR}/demos/BasicWindow.c)
 add_executable(Rect        ${PROJECT_SOURCE_DIR}/demos/Rect.c)
 
-target_link_libraries(BasicWindow PRIVATE rikkacore m glfw GL GLEW)
-target_link_libraries(Rect        PRIVATE rikkacore m glfw GL GLEW)
+target_link_libraries(BasicWindow PRIVATE rikkacore  GLEW GL GLU m glfw X11)
+target_link_libraries(Rect        PRIVATE rikkacore  GLEW GL GLU m glfw X11)

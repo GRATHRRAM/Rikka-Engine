@@ -36,7 +36,7 @@ void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Pos, rkk_vec2 Size, rkk_Color C
         // Positions (X, Y, Z)
         Pos.x,          Pos.y,          0.0f,  // Bottom-left
         Pos.x + Size.x, Pos.y,          0.0f,  // Bottom-right
-        Pos.x + Size.x, Pos.y + Size.x, 0.0f,  // Top-right
+        Pos.x + Size.x, Pos.y + Size.y, 0.0f,  // Top-right
         Pos.x,          Pos.y + Size.y, 0.0f   // Top-left
     };
 
