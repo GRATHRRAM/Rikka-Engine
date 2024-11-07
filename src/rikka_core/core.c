@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <math.h>
 
 #include "../rikka_datatypes.h"
 
@@ -18,6 +19,10 @@ void rkk_SetVsync(rkk_bool State);
 
 void rkk_PoolEvents();
 void rkk_SwapBuffers(rkk_Window *Window);
+
+rkk_vec2 rkk_MakeVec2(float x, float y);
+rkk_Color rkk_MakeColor(rkk_u8 Red, rkk_u8 Green, rkk_u8 Blue, rkk_u8 Alpha);
+rkk_Color rkk_MakeColorF(float Red, float Green, float Blue, float Alpha);
 
 int rkk_InitGLFW() {
     int err = glfwInit();
@@ -49,3 +54,15 @@ rkk_bool rkk_WindowShouldClose(rkk_Window *Window) {return (rkk_bool) glfwWindow
 
 void rkk_PoolEvents() {glfwPollEvents();}
 void rkk_SwapBuffers(rkk_Window *Window) {glfwSwapBuffers(Window);}
+
+rkk_vec2 rkk_MakeVec2(float x, float y) {return (rkk_vec2){x,y};}
+rkk_Color rkk_MakeColor(rkk_u8 Red, rkk_u8 Green, rkk_u8 Blue, rkk_u8 Alpha) {return (rkk_Color){Red,Green,Blue,Alpha};}
+rkk_Color rkk_MakeColorF(float Red, float Green, float Blue, float Alpha) {
+    rkk_Color Color = {
+        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Red   * 255.0f))),
+        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Green * 255.0f))),
+        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Blue  * 255.0f))),
+        (rkk_u8) fmax(0.0f, fmin(255.0f, lroundf(Alpha * 255.0f)))
+    };
+    return Color;
+}

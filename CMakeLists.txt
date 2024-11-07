@@ -8,6 +8,7 @@ set(Rikka_Core_Src
     ./src/rikka_core/core.c
     ./src/rikka_core/shaders.c
     ./src/rikka_core/renderer.c
+    ./src/rikka_core/renderer_shaders.c
 )
 
 #Copy Staff to build
@@ -56,5 +57,7 @@ else()
 endif()
 
 add_executable(BasicWindow ${PROJECT_SOURCE_DIR}/demos/BasicWindow.c)
+add_executable(Rect        ${PROJECT_SOURCE_DIR}/demos/Rect.c)
 
-target_link_libraries(BasicWindow PRIVATE rikkacore glfw GL GLEW)
+target_link_libraries(BasicWindow PRIVATE rikkacore m glfw GL GLEW)
+target_link_libraries(Rect        PRIVATE rikkacore m glfw GL GLEW)
