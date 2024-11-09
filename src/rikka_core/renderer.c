@@ -1,4 +1,5 @@
 #include <GL/glew.h>
+#include <GL/gl.h>
 #include <GLFW/glfw3.h>
 
 #include "../rikka_datatypes.h"
@@ -7,15 +8,16 @@
 extern const char* __RKK_RECT_VERTEX_GLSL;
 extern const char* __RKK_RECT_FRAGMENT_GLSL;
 
-rkk_Renderer rkk_GetRenderer();
+rkk_Renderer rkk_GetRenderer(rkk_vec2 ScreenSize);
 void rkk_DestroyRenderer(rkk_Renderer *Rnd);
 void rkk_Clear(rkk_Color Color);
 void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Position, rkk_vec2 Size, rkk_Color Color);
 
-rkk_Renderer rkk_GetRenderer() {
+rkk_Renderer rkk_GetRenderer(rkk_vec2 ScreenSize) {
     GLuint RectShader = rkk_CreateShaderProgram(__RKK_RECT_VERTEX_GLSL, __RKK_RECT_FRAGMENT_GLSL);
    
     rkk_Renderer rnd = {};
+    rnd.ScreenSize = ScreenSize;
     rnd.RectShader = RectShader;
 
     return rnd;
@@ -31,6 +33,7 @@ void rkk_Clear(rkk_Color Color) {
 }
 
 void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Pos, rkk_vec2 Size, rkk_Color Color) {
+    
     GLfloat vertices[] = {
         Pos.x,          Pos.y,          0.0f,
         Pos.x + Size.x, Pos.y,          0.0f,
@@ -64,6 +67,9 @@ void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Pos, rkk_vec2 Size, rkk_Color C
 
     GLint colorLoc = glGetUniformLocation(Rnd->RectShader, "rectColor");
     glUniform4f(colorLoc, Color.r, Color.g, Color.b, Color.a);
+
+    GLuint ScreenSizeLoc = glGetUniformLocation(Rnd->RectShader, "ScreenSize");
+    glUniform3f(ScreenSizeLoc, Rnd->ScreenSize.x, Rnd->ScreenSize.y, 0);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

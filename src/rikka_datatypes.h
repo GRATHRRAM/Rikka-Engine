@@ -17,10 +17,6 @@ typedef unsigned char  rkk_u8;
 
 typedef GLFWwindow rkk_Window;
 
-typedef struct rkk_Renderer {
-    GLuint RectShader;
-} rkk_Renderer;
-
 typedef struct rkk_vec2 {
     float x;
     float y;
@@ -39,5 +35,10 @@ typedef struct rkk_Color {
     float b;
     float a;
 } rkk_Color;
+
+typedef struct rkk_Renderer {
+    rkk_vec2 ScreenSize;
+    GLuint RectShader;
+} rkk_Renderer;
 
 #endif //RIKKA_DATATYPES_H

@@ -36,7 +36,7 @@ GLuint rkk_CreateShaderProgram(const char* VertextShader, const char* FragmentSh
 void rkk_DeleteShaderProgram(GLuint ShaderProgram);
 
 /* renderer.c */
-rkk_Renderer rkk_GetRenderer();
+rkk_Renderer rkk_GetRenderer(rkk_vec2 ScreenSize);
 void rkk_DestroyRenderer(rkk_Renderer *Rnd);
 void rkk_Clear(rkk_Color Color);
 void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Position, rkk_vec2 Size, rkk_Color Color);
