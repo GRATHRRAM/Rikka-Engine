@@ -7,8 +7,8 @@ const char* __RKK_RECT_VERTEX_GLSL =
 "uniform vec4 rectColor; // Uniform color to apply to rectangle\n"
 "\n"
 "void main() {\n"
-"   gl_Position = vec4(aPos.x, aPos.y, 0.0, 1.0);  // Directly use the position in screen coordinates\n"
-"    fragColor = rectColor;  // Pass the color to the fragment shader\n"
+"   gl_Position = vec4(aPos, 1.0);  // Directly use the position in screen coordinates\n"
+"   fragColor = rectColor;  // Pass the color to the fragment shader\n"
 "}";
 
 const char* __RKK_RECT_FRAGMENT_GLSL =

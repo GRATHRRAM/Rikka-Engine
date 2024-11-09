@@ -23,9 +23,11 @@ rkk_vec2 rkk_MakeVec2(float x, float y);
 rkk_Color rkk_MakeColor(float Red, float Green, float Blue, float Alpha);
 rkk_Color rkk_MakeColorU8(float Red, float Green, float Blue, float Alpha);
 
+void GLAPIENTRY rkk_DebugCallBack(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam);
+int rkk_SetDebug(rkk_bool State);
 //void rkk_error_callback(int error, const char* desc);
 
-void rkk_PoolEvents();
+void rkk_PollEvents();
 void rkk_SwapBuffers(rkk_Window *Window);
 
 /* shaders.c */

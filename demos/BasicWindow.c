@@ -14,7 +14,7 @@ int main(void) {
     rkk_UseWindow(Window);
 
     while(!rkk_WindowShouldClose(Window)) {
-        rkk_PoolEvents();
+        rkk_PollEvents();
         rkk_Clear(rkk_MakeColor(0.47f, 0.0f,0.46f, 1.0f));
         rkk_SwapBuffers(Window);
     }
