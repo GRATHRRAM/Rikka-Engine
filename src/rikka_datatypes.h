@@ -45,6 +45,18 @@ typedef struct rkk_Renderer {
 typedef struct rkk_Uniform {
     char *Name;
     float Values[4];
+    rkk_u8 UniformType;
 } rkk_Uniform;
+
+enum _rkk_unform_types {
+    rkkut_1i,
+    rkkut_2i,
+    rkkut_3i,
+    rkkut_4i,
+    rkkut_1f,
+    rkkut_2f,
+    rkkut_3f,
+    rkkut_4f
+};
 
 #endif //RIKKA_DATATYPES_H
