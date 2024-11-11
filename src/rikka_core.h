@@ -39,6 +39,6 @@ void rkk_DeleteShaderProgram(GLuint ShaderProgram);
 rkk_Renderer rkk_GetRenderer(rkk_vec2 ScreenSize);
 void rkk_DestroyRenderer(rkk_Renderer *Rnd);
 void rkk_Clear(rkk_Color Color);
-void rkk_RndDrawRect(rkk_Renderer *Rnd, rkk_vec2 Position, rkk_vec2 Size, rkk_Color Color);
+void rkk_RendererDrawRect(rkk_Renderer *Rnd, rkk_vec2 Position, rkk_vec2 Size, rkk_Color Color);
 
 #endif

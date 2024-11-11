@@ -20,19 +20,19 @@ int main(void) {
         
         rkk_Clear(rkk_MakeColor(0,0,0,1));
 
-        rkk_RndDrawRect(&Renderer,
+        rkk_RendererDrawRect(&Renderer,
             rkk_MakeVec2(50,50),
             rkk_MakeVec2(200,200),
             rkk_MakeColor(0.7,0,0,0.5)
         );
         
-        rkk_RndDrawRect(&Renderer,
+        rkk_RendererDrawRect(&Renderer,
             rkk_MakeVec2(200,200),
             rkk_MakeVec2(200,200),
             rkk_MakeColor(0,0,0.7,0.5)
         );
         
-        rkk_RndDrawRect(&Renderer,
+        rkk_RendererDrawRect(&Renderer,
             rkk_MakeVec2(500,300),
             rkk_MakeVec2(200,200),
             rkk_MakeColor(0,0.7,0,0.5)

@@ -11,6 +11,7 @@
 
 typedef unsigned char rkk_bool;
 
+typedef unsigned long long int rkk_u64;
 typedef unsigned int   rkk_u32;
 typedef unsigned short rkk_u16;
 typedef unsigned char  rkk_u8;
@@ -40,5 +41,10 @@ typedef struct rkk_Renderer {
     rkk_vec2 ScreenSize;
     GLuint RectShader;
 } rkk_Renderer;
+
+typedef struct rkk_Uniform {
+    char *Name;
+    float Values[4];
+} rkk_Uniform;
 
 #endif //RIKKA_DATATYPES_H
